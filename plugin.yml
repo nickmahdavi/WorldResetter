@@ -1,0 +1,9 @@
+name: WorldResetter
+prefix: WorldResetter
+main: me.nkightly.worldresetter.WorldResetter
+version: "1.0"
+api-version: "1.16"
+
+commands:
+  resetter:
+    description: World resetter commands.
