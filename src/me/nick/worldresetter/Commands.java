@@ -19,6 +19,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+import org.bukkit.util.Vector;
 
 public class Commands implements CommandExecutor, TabExecutor {
     String root = Bukkit.getServer().getWorldContainer().getAbsolutePath();
@@ -227,12 +228,13 @@ public class Commands implements CommandExecutor, TabExecutor {
                         commandsender.sendMessage(ChatColor.GREEN + "Unpaused.");
 
                         for (Player player : Bukkit.getOnlinePlayers()) {
-                            HashMap<String, Object> playerMap = Utils.LastSeen.get(player.getUniqueId());
+                            HashMap<String, Object> playermap = Utils.LastSeen.get(player.getUniqueId());
 
-                            player.teleport((Location)playerMap.get("location"));
-                            player.setGameMode((GameMode)playerMap.get("gamemode"));
-                            player.addPotionEffects((Collection<PotionEffect>)playerMap.get("effects"));
-                            player.setRemainingAir((int)playerMap.get("airtime"));
+                            player.teleport((Location)playermap.get("location"));
+                            player.setGameMode((GameMode)playermap.get("gamemode"));
+                            player.addPotionEffects((Collection<PotionEffect>)playermap.get("effects"));
+                            player.setRemainingAir((int)playermap.get("airtime"));
+                            player.setVelocity((Vector)playermap.get("velocity"));
                         }
                     }
                 } else {

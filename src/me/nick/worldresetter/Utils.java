@@ -88,6 +88,7 @@ public class Utils {
             map.put("gamemode", player.getGameMode());
             map.put("effects", player.getActivePotionEffects());
             map.put("airtime", player.getRemainingAir());
+            map.put("velocity", player.getVelocity());
 
             LastSeen.put(player.getUniqueId(), map);
             player.teleport(limboSpawn);
